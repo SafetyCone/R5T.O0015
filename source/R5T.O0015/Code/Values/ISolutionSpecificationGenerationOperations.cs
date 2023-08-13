@@ -1,7 +1,6 @@
 using System;
 
 using R5T.T0131;
-using R5T.T0187;
 using R5T.T0197;
 using R5T.T0197.Extensions;
 using R5T.T0204;
@@ -20,6 +19,17 @@ namespace R5T.O0015
         {
             var libraryName = unadjustedLibraryName.Value.ToLibraryName();
 
+            return this.Get_WebLibraryWithConstructionSolutionSpecification(
+                libraryName,
+                webLibraryDescription,
+                isPrivate);
+        }
+
+        public WebLibraryWithConstructionSolutionSpecification Get_WebLibraryWithConstructionSolutionSpecification(
+            ILibraryName libraryName,
+            ILibraryDescription webLibraryDescription,
+            bool isPrivate)
+        {
             // Get solution name.
             var defaultSolutionName = Instances.LibraryNameOperator.Get_DefaultSolutionName(libraryName);
 
